@@ -7,7 +7,7 @@ import gym
 
 # hyperparameters
 H = 100  # number of hidden layer neurons
-batch_size = 10  # every how many episodes to do a param update?
+batch_size = 5  # every how many episodes to do a param update?
 learning_rate = 1e-2
 gamma = 0.98  # discount factor for reward
 decay_rate = 0.98  # decay factor for RMSProp leaky sum of grad^2
@@ -82,7 +82,7 @@ running_reward = None
 reward_sum = 0
 episode_number = 0
 while True:
-    if render:
+    if render and episode_number % 10 == 0:
         env.render()
 
     # preprocess the observation, set input to network to be difference image
